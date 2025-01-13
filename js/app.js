@@ -13216,7 +13216,8 @@ async function checkMediaPermissions() {
             return true;
         } else {
             //console.log('尚未取得完整權限');
-            await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            stream.getTracks().forEach(track => track.stop());
             return true;
         }
     } catch (error) {
@@ -13405,6 +13406,7 @@ async function getConstraints() {
         const settings = videoTrack.getSettings();
         console.log('攝像頭的實際設定:', settings);
         //const capabilities = videoTrack.getCapabilities();
+        stream.getTracks().forEach(track => track.stop());
         //console.log(capabilities);
 
         let reqWidth;
