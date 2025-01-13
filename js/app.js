@@ -13518,13 +13518,13 @@ async function startVideo() {
 
 
     try {
-        //await navigator.mediaDevices.getUserMedia({ deviceId: { exact: choseVideoSource }, video: true, audio: true });
-        await testDeviceAvailability(constraints.video.deviceId.exact);
+        // await navigator.mediaDevices.getUserMedia({ deviceId: { exact: choseVideoSource }, video: true, audio: true });
+        // await testDeviceAvailability(constraints.video.deviceId.exact);
 
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         window.stream = stream;
 
-        delay(2000);
+        //delay(2000);
 
         const w = constraints.video.width.exact;
         const h = constraints.video.height.exact;
